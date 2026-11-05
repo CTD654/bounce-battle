@@ -1,0 +1,38 @@
+# Bounce Battle
+
+A FNAF-themed bouncing-ball battle simulator with nine fighters, unique attacks, Limit Breaks, sequential team battles, sound customization, and portrait MP4 recording.
+
+## Download and play on Windows
+
+[Download the latest Windows app](https://github.com/CTD654/bounce-battle/releases/latest)
+
+1. Download **Bounce-Battle-Windows.zip** from the release assets.
+2. Extract the entire ZIP.
+3. Open **Bounce Battle.exe** inside the extracted folder.
+
+Runs offline on 64-bit Windows 10/11. No account, browser, Node.js, or installation is needed to play. Keep the EXE and its supporting files together. The app is unsigned; Windows may show an unknown-publisher notice.
+
+## Features
+
+- Freddy, Foxy, Chica, Bonnie, Roxy, Golden Freddy, Nightguard, Endo, and Mangle.
+- Duel mode or sequential team battles with unique fighters on each side.
+- Fighter Stats page with abilities, cooldowns, movement, and Limit Break descriptions.
+- Optional Limit Breaks and 1x, 2x, 3x, 5x, and 10x battle speeds.
+- Custom sound effects saved locally on each player's computer.
+- Record the arena and side meters as a 9:16 MP4 with sound.
+
+## Run or edit the source
+
+Install Node.js LTS and pnpm, then run:
+
+    pnpm install --ignore-scripts
+    node node_modules/electron/install.js
+    pnpm start
+
+Build the Windows ZIP with `pnpm package`. HTML, CSS, and game JavaScript are in the repository root; `main.cjs` and `runtime.cjs` provide the desktop shell. The game is bundled locally and does not require the hosted website.
+
+Open `index.html` through a local static web server for browser development. Open `stats.html` for the fighter guide. The desktop version adds an explicit recording frame timer for reliable app capture.
+
+## Project note
+
+This is an unofficial fan project. Five Nights at Freddy's character names and designs belong to their respective owners. Custom sound files are not bundled; each player supplies their own audio.

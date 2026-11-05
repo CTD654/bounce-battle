@@ -1,0 +1,16 @@
+BOUNCE BATTLE — WINDOWS APP
+
+1. Right-click Bounce-Battle-Windows.zip and choose Extract All.
+2. Open the extracted folder and double-click Bounce Battle.exe.
+3. Choose fighters and press Start Battle.
+
+Send the entire ZIP to friends. Keep the EXE and all supporting files together.
+Runs offline on Windows 10/11, 64-bit. No account, browser, Node.js, or installation is required.
+
+Fighter Stats opens the character guide. Customization lets each player choose their own audio files.
+Sounds and settings are saved locally on that person's computer. Sounds previously uploaded to the website are not bundled.
+Record Arena captures a portrait MP4 with game audio; Stop & Save opens the save dialog.
+F11 switches full screen on or off. Press Alt to show the app menu.
+
+This is an unsigned fan-game build. Windows may display an unknown-publisher notice.
+This app contains the game as of this download. Later website changes require an updated app download.

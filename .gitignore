@@ -1,0 +1,8 @@
+node_modules/
+build-input/
+releases/
+.verification/
+*.zip
+*.sha256
+.env*
+.openai/

@@ -1,0 +1,19 @@
+{
+  "name": "bounce-battle",
+  "version": "1.0.0",
+  "description": "Bounce Battle — standalone offline fighter simulation",
+  "productName": "Bounce Battle",
+  "main": "main.cjs",
+  "author": "Chace",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "package": "node package.mjs"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "electron": "45.2.2",
+    "yazl": "3.3.1"
+  }
+}
