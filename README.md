@@ -4,7 +4,7 @@ A FNAF-themed bouncing-ball battle simulator with eleven regular fighters, the P
 
 ## Download and play on Windows
 
-[Download the latest Windows app](https://github.com/CTD654/bounce-battle/releases/latest)
+[Download Bounce Battle v1.1.0 for Windows](https://github.com/CTD654/bounce-battle/releases/download/v1.1.0/Bounce-Battle-Windows.zip)
 
 1. Download **Bounce-Battle-Windows.zip** from the release assets.
 2. Extract the entire ZIP.
@@ -33,7 +33,7 @@ Install Node.js LTS and pnpm, then run:
 
 Build the Windows ZIP with `pnpm package`. HTML, CSS, and game JavaScript are in the repository root; `main.cjs` and `runtime.cjs` provide the desktop shell. The game is bundled locally and does not require the hosted website.
 
-Open `index.html` through a local static web server for browser development. Open `stats.html` for the fighter guide. The source files match website version 155. The v1.0.0 Windows download contains the earlier game version.
+Open `index.html` through a local static web server for browser development. Open `stats.html` for the fighter guide. The source files match website version 155. The v1.1.0 Windows download includes this version of the game.
 
 ## Project note
 
