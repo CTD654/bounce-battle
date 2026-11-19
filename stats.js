@@ -1,4 +1,21 @@
 const FIGHTER_DETAILS = {
+  purpleguy: {
+    look: 'Purple boss with pale eyes, a wide smile, and a gold badge.',
+    abilities: [
+      ['Knife', '10 damage per hit • starts at 1 rev/s', 'Each hit that removes HP increases rotation speed by 0.01 rev/s. The speed carries over between fighters in Boss Battle.'],
+      ['Spring Bonnie suit', 'Every 450 HP lost • lasts 30s', 'Heals 30 HP on activation. While suited up, Purple Guy takes half damage rounded up and his knife spins at 1.5× its current speed. Damage taken in the suit charges the next activation.']
+    ],
+    limit: null
+  },
+  "toyfreddy": {
+    "look": "Light brown ball with red cheeks, a black top hat, and a bowtie.",
+    "abilities": [
+      ["Microphone", "5 damage per hit", "Orbits at 1 revolution per second and reverses on a hit or weapon clash. The orbiting microphone is unavailable while the thrown mic is in flight."],
+      ["Mic toss", "10 damage • 2s cooldown", "Aims once at the opponent and flies straight at 1,440 px/s. Toy Freddy summons a replacement when the thrown mic hits an opponent or arena wall, then starts the next cooldown."],
+      ["Laugh / shockwave", "15 damage • 6.5s cooldown • 2× body radius", "Hits opponents inside the shockwave area when released."]
+    ],
+    "limit": "Launches a pizza wheel in a random direction every second. Each wheel deals 15–20 damage on contact. When a wheel hits an arena wall, it bursts into eight slices. Each slice deals 20% of the wheel’s rolled damage, rounded up (3–4 damage). Mic Toss and shockwave continue."
+  },
   "freddy": {
     "look": "Brown ball with a black top hat and bowtie.",
     "abilities": [
@@ -19,14 +36,11 @@ const FIGHTER_DETAILS = {
       ],
       [
         "Pizza wheel explosion",
-        "8 slices • 1 damage each",
-        "On a wall hit, the wheel bursts in eight equally spaced directions (45° apart). Slice radius: 8px; speed: 560px/s; lifetime: 1.5s."
+        "8 slices • 2–3 damage each",
+        "On a wall hit, the wheel bursts in eight equally spaced directions (45° apart). Each slice deals 20% of the wheel’s rolled damage, rounded up. Slice radius: 8px; speed: 560px/s; lifetime: 1.5s."
       ]
     ],
-    "limit": [
-      "150 HP or less",
-      "Power Drain deals 6 damage every second to the opponent. Laugh radius increases to 2.5× body radius."
-    ]
+    "limit": "Power Drain deals 6 damage every second to the opponent. Laugh radius increases to 2.5× body radius."
   },
   "foxy": {
     "look": "Red ball with a cosmetic eyepatch.",
@@ -52,10 +66,7 @@ const FIGHTER_DETAILS = {
         "Uses the crowbar only while fighting Nightguard. Each new Nightguard matchup has a 5% chance to trigger Foxy’s Limit Break immediately, including in team battles."
       ]
     ],
-    "limit": [
-      "100 HP or less",
-      "Throws the hook or crowbar at the opponent (speed: 6× base speed; flight timeout: 2s). A successful hit drags the opponent to the wall and pins them for 5s. The orbiting weapon is removed. Dash cooldown becomes 0.25s; a dash can deal an additional 10 damage on contact. Critical chance stays at a flat 10% for every eligible hit. Critical damage remains 3×."
-    ]
+    "limit": "Throws the hook or crowbar at the opponent (speed: 6× base speed; flight timeout: 2s). A successful hit drags the opponent to the wall and pins them for 5s. The orbiting weapon is removed. Dash cooldown becomes 0.25s; a dash can deal an additional 10 damage on contact. Critical chance stays at a flat 10% for every eligible hit. Critical damage remains 3×."
   },
   "chica": {
     "look": "Yellow ball with a white cosmetic bib and three feathers.",
@@ -81,10 +92,7 @@ const FIGHTER_DETAILS = {
         "Only slices eaten by Chica count. The dropped-cupcake cooldown stops decreasing at 1s."
       ]
     ],
-    "limit": [
-      "100 HP or less",
-      "Stays active even if Chica heals above 100 HP. Orbiting cupcake damage becomes 12. Dropped cupcakes become birthday cakes that deal 12 damage or heal Chica for 12 HP. Chica also regenerates 1 HP per second, up to maximum HP."
-    ]
+    "limit": "Stays active even if Chica heals above 100 HP. Orbiting cupcake damage becomes 12. Dropped cupcakes become birthday cakes that deal 12 damage or heal Chica for 12 HP. Chica also regenerates 1 HP per second, up to maximum HP."
   },
   "bonnie": {
     "look": "Purple-blue ball with cosmetic bunny ears, a red bowtie, and a red-and-white guitar.",
@@ -100,10 +108,7 @@ const FIGHTER_DETAILS = {
         "Expands to full size over 0.4s and lasts 0.65s. Each opponent can be hit once. Adds knockback equal to 2× Bonnie’s current bounce speed."
       ]
     ],
-    "limit": [
-      "150 HP or less",
-      "Turns dark purple-blue and gains two small red eyes. The circular soundwave is replaced by a red homing laser: 20 damage, 3s cooldown, speed of 6× base speed, and a 1.5s lifetime. Homes at up to 20 radians/s and retains the soundwave’s knockback. Burst projectile damage increases to 5 each (15 total if all three hit)."
-    ]
+    "limit": "Turns dark purple-blue and gains two small red eyes. The circular soundwave is replaced by a red homing laser: 20 damage, 3s cooldown, speed of 6× base speed, and a 1.5s lifetime. Homes at up to 20 radians/s and retains the soundwave’s knockback. Burst projectile damage increases to 5 each (15 total if all three hit)."
   },
   "roxy": {
     "look": "Light grey ball with three right-swept green hair strands, dark green shadows, cheek squiggles, and eye makeup.",
@@ -124,10 +129,7 @@ const FIGHTER_DETAILS = {
         "Lunges toward the opponent with the paw pointing forward. Deals 10 grab damage, then 10 more on the wall slam. Uses the greater of 900px/s or 1.8× current speed, capped at maximum speed."
       ]
     ],
-    "limit": [
-      "200 HP or less",
-      "Appearance becomes darker, cracked, and disheveled. Deals double damage and takes double damage. Paw rotation becomes 2 rev/s. Lunge cooldown becomes 0.2s and targets where the opponent last hit a wall. Dash grab and slam each deal 20 damage after the multiplier."
-    ]
+    "limit": "Appearance becomes darker, cracked, and disheveled. Deals double damage and takes double damage. Paw rotation becomes 2 rev/s. Lunge cooldown becomes 0.2s and targets where the opponent last hit a wall. Dash grab and slam each deal 20 damage after the multiplier."
   },
   "goldenfreddy": {
     "look": "Golden version of Freddy with a purple hat and bowtie.",
@@ -148,10 +150,7 @@ const FIGHTER_DETAILS = {
         "Every damaging hit is reduced to 1 damage. Immune to knockback. Roxy can grab him, but he stays still after being released."
       ]
     ],
-    "limit": [
-      "50 HP or less",
-      "Teleports to the center and stays there. Pulls the opponent inward with gravity equal to 2× normal gravity (1,440px/s²). Contact damage rises to 10. A persistent black zone extends to 3× body radius, dealing 1 damage on entry and another 1 each second while inside. Damage resistance stays at 1 damage per hit."
-    ]
+    "limit": "Teleports to the center and stays there. Pulls the opponent inward with gravity equal to 2× normal gravity (1,440px/s²). Contact damage rises to 10. A persistent black zone extends to 3× body radius, dealing 1 damage on entry and another 1 each second while inside. Damage resistance stays at 1 damage per hit. Against Purple Guy, Golden Freddy heals to his full 125 HP and starts bouncing under gravity. Freddy’s microphone (5 damage) and Chica’s cupcake (4 damage) each orbit at 2 rev/s. Foxy’s hook orbits at 3 rev/s and hits for 3 damage. Hook and body hits, including dashes, have a 10% chance to deal triple damage. He regenerates 1 HP per second, dashes every 2.5 seconds with 5 contact damage and 0.05s of invincibility at the start, fires Bonnie’s three-projectile burst every 2 seconds, and emits Bonnie’s 10-damage circular knockback wave every 6 seconds."
   },
   "nightguard": {
     "look": "Dark purple ball with a security hat and yellow badge.",
@@ -177,10 +176,7 @@ const FIGHTER_DETAILS = {
         "The light turns off and a battery appears at a random arena position. The flashlight rotates at 2 rev/s; current velocity doubles and maximum speed becomes 4× normal base speed. Collecting the battery restores the light and resets the hit/stun counters."
       ]
     ],
-    "limit": [
-      "150 HP or less",
-      "Beam reach increases to 360px and the hit cone widens to about a 22.8° half-angle. Gains a shield that blocks 10 hits, one shield charge per hit. The shield prevents damage but allows Foxy’s pin and Roxy’s grab effects."
-    ]
+    "limit": "Beam reach increases to 360px and the hit cone widens to about a 22.8° half-angle. Gains a shield that blocks 10 hits, one shield charge per hit. The shield prevents damage but allows Foxy’s pin and Roxy’s grab effects."
   },
   "endo": {
     "look": "Dark grey ball with rectangular teeth. Minions have antennae topped with red balls.",
@@ -196,10 +192,7 @@ const FIGHTER_DETAILS = {
         "Cooldown stops decreasing at 1s. Minion damage stops increasing at 10."
       ]
     ],
-    "limit": [
-      "150 HP or less",
-      "Minion summon cooldown becomes 0.25s. Minion damage continues to scale up to 10."
-    ]
+    "limit": "Minion summon cooldown becomes 0.25s. Minion damage continues to scale up to 10."
   },
   "mangle": {
     "look": "Light grey ball with a dirty pink outline and a robot head connected by a metal neck.",
@@ -225,7 +218,24 @@ const FIGHTER_DETAILS = {
         "Spawns randomly just outside Mangle, within a radius around them, as a stationary puddle with a 22px radius. Deals 1 damage per 0.5s tick while the opponent overlaps it. Does not hurt Mangle."
       ]
     ],
-    "limit": ["150 HP or less", "All Mangle ability cooldowns are halved: head boomerang 1.5s, Prize Ball 2.5s, and hot cheese 0.75s. Instantly scatters 10 hot cheese puddles around Mangle inside the arena. Hot cheese sticks to an opponent on contact, follows them for 2 seconds, then disappears. Uncollected puddles last 4.5s. Each attached cheese independently deals 1 damage every 0.5s, so multiple cheeses stack their damage ticks. Existing cheese also gains the sticky effect."]
+    "limit": "All Mangle ability cooldowns are halved: head boomerang 1.5s, Prize Ball 2.5s, and hot cheese 0.75s. Instantly scatters 10 hot cheese puddles around Mangle inside the arena. Hot cheese sticks to an opponent on contact, follows them for 2 seconds, then disappears. Uncollected puddles last 4.5s. Each attached cheese independently deals 1 damage every 0.5s, so multiple cheeses stack their damage ticks. Existing cheese also gains the sticky effect."
+  },
+  "toychica": {
+    "look": "Bright yellow ball with a white bib, three feathers, and a pink bottom cosmetic. Maximum HP: 400.",
+    "abilities": [
+      [
+        "Orbiting cupcake",
+        "4 damage • 1 rev/s",
+        "Uses the same cupcake size and orbit as regular Chica. Reverses rotation on opponent hits and weapon clashes."
+      ],
+      [
+        "Cupcake summon",
+        "4s cooldown • 8 damage or 8 healing",
+        "Drops a pink-frosted cupcake that arms after Toy Chica moves clear of it. Heals Toy Chica or regular Chica for 8 HP; deals 8 damage to other opponents. Toy Chica does not drop pizzas."
+      ],
+
+    ],
+    "limit": "Summons an indestructible homing rainbow from a random point along an arena wall. It deals 15 damage on contact, then is replaced from a different random wall point. Only one rainbow can exist in the arena at a time; if both Toy Chicas activate, they take turns owning successive rainbows. Each rainbow starts at 700 px/s, accelerating at 700 × 1.3^t px/s, where t is that rainbow’s age in battle seconds. Speed resets to 700 px/s for every replacement. Weapons and minions cannot destroy it. Cupcake summons continue."
   }
 };
 const picker=document.getElementById('fighter-select'),details=document.getElementById('fighter-details');
@@ -233,9 +243,10 @@ function node(tag,text,className){const e=document.createElement(tag);if(text!==
 const number=v=>Number(v.toFixed(2)).toLocaleString('en-US');
 function renderFighterStats(key){const spec=CHARACTERS[key],info=FIGHTER_DETAILS[key];details.replaceChildren();details.style.setProperty('--fighter',spec.color);
 const heading=node('div',undefined,'fighter-heading'),swatch=node('span',undefined,'swatch'),title=node('div');swatch.setAttribute('aria-hidden','true');title.append(node('h2',spec.name),node('p',info.look,'description'));heading.append(swatch,title);details.append(heading);
-const grid=node('dl',undefined,'stat-grid');const stats=[['Maximum HP',spec.hp],['Body contact',key==='goldenfreddy'?'5 damage':'1 damage'],['Starting speed',key==='goldenfreddy'?'Stationary':number(BASE_SPEED)+' px/s'],['Maximum speed',key==='goldenfreddy'?'Stationary':number(BASE_SPEED*spec.speedCap)+' px/s ('+spec.speedCap+'×)'],['Body radius',number(R)+' px'],['Gravity',key==='goldenfreddy'?'Unaffected':number(GRAVITY)+' px/s²']];
+const grid=node('dl',undefined,'stat-grid');const stats=[['Maximum HP',spec.hp],['Body contact',key==='goldenfreddy'?'5 damage':'1 damage'],['Starting speed',key==='goldenfreddy'?'Stationary':number(BASE_SPEED*(spec.startingSpeedScale??1))+' px/s'],['Maximum speed',key==='goldenfreddy'?'Stationary':number(BASE_SPEED*spec.speedCap)+' px/s ('+spec.speedCap+'×)'],['Body radius',number(spec.radius??R)+' px'],['Gravity',key==='goldenfreddy'?'Unaffected':number(GRAVITY)+' px/s²']];
 if(spec.weapon)stats.push(['Weapon',spec.weapon.name],['Weapon hit radius',number(spec.weapon.r)+' px'],['Weapon orbit radius',number(spec.weapon.orbit)+' px'],['Rotation',spec.weapon.rate?number(spec.weapon.rate)+' rev/s':'Tracks opponent']);
 for(const [label,value]of stats){const item=node('div',undefined,'stat');item.append(node('dt',label),node('dd',String(value)));grid.append(item);}details.append(grid,node('h3','Attacks & abilities','section-title'));
-const cards=node('div',undefined,'ability-grid');for(const [title,stats,description] of info.abilities){const card=node('section',undefined,'ability');card.append(node('h3',title),node('p',stats,'ability-stats'),node('p',description,'description'));cards.append(card);}details.append(cards,node('h3','Limit Break','section-title'));const limit=node('section',undefined,'ability limit');limit.append(node('h3',info.limit?'Activates at '+info.limit[0]:'No Limit Break'),node('p',info.limit?info.limit[1]:'Mangle currently uses its regular abilities throughout the battle.','description'));details.append(limit);
-const rules=node('section',undefined,'rules');rules.append(node('h3','Shared battle rules'),node('p','Arena: '+W+' × '+H+' px. Wall rebounds multiply velocity by 1.05, up to the fighter’s speed cap. Body bounces multiply velocity by '+BOUNCE+' (a 0.1% increase), also capped. Orbiting weapons reverse direction when they hit an enemy body or clash with another weapon. Healing is capped at maximum HP. All damage can be modified by the defender’s damage resistance, shield, or Limit Break.'));details.append(rules);}
-for(const [key,spec]of Object.entries(CHARACTERS)){const option=node('option',spec.name);option.value=key;picker.append(option);}picker.value='freddy';picker.addEventListener('change',()=>renderFighterStats(picker.value));renderFighterStats('freddy');
+const cards=node('div',undefined,'ability-grid');for(const [title,stats,description] of info.abilities){const card=node('section',undefined,'ability');card.append(node('h3',title),node('p',stats,'ability-stats'),node('p',description,'description'));cards.append(card);}details.append(cards,node('h3','Limit Break','section-title'));const limit=node('section',undefined,'ability limit');limit.append(node('h3',info.limit?'Activates after losing '+spec.limitDamage+' HP':'No Limit Break'),node('p',info.limit?info.limit:spec.name+' currently uses its regular abilities throughout the battle.','description'));details.append(limit);
+const rules=node('section',undefined,'rules');rules.append(node('h3','Shared battle rules'),node('p','Arena: '+W+' × '+H+' px. Wall rebounds multiply velocity by 1.05, up to the fighter’s speed cap. Body bounces multiply velocity by '+BOUNCE+' (a 0.1% increase), also capped. Orbiting weapons reverse direction when they hit an enemy body or clash with another weapon. Healing is capped at maximum HP. Limit Break charge counts total HP lost, including Sudden Death damage. Healing does not remove charge. Normal attack damage can be modified by the defender’s damage resistance, shield, or Limit Break. In Duel and Teams, Sudden Death begins at 4 minutes of battle time. Boss Battles have no Sudden Death. Healing abilities and healing pickups remain active. Starting one second later, every fighter loses 1 HP per second; the damage increases by 1 every 5 seconds of Sudden Death. This damage bypasses shields, invincibility, and damage resistance. Sudden Death persists across team rounds and resets for a new match.'));details.append(rules);}
+populateFighterPicker(picker, 'freddy', [], true);
+picker.addEventListener('change',()=>renderFighterStats(picker.value));renderFighterStats('freddy');
